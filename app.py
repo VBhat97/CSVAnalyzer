@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect
 
 app = Flask(__name__)
 
@@ -11,4 +11,4 @@ def form_action():
     if request.method == 'POST':
         return render_template('form_action.html', email=request.form['email'], file=request.form['myfile'])
     else :
-        return 'This is not valid'
+        return redirect('/')
