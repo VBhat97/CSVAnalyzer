@@ -6,6 +6,9 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/form-action')
+@app.route('/form-action', methods=["GET","POST"])
 def form_action():
-    return render_template('form_action.html', email=request.args['email'], file=request.args['myfile'])
+    if request.method == 'POST':
+        return render_template('form_action.html', email=request.form['email'], file=request.form['myfile'])
+    else :
+        return 'This is not valid'
