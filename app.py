@@ -8,4 +8,4 @@ def home():
 
 @app.route('/form-action')
 def form_action():
-    return render_template('form_action.html', email=request.args['email'])
+    return render_template('form_action.html', email=request.args['email'], file=request.args['myfile'])
