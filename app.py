@@ -10,7 +10,7 @@ def home():
 def form_action():
     if request.method == 'POST':
         email=request.form['email']
-        f = request.files['file']
+        f = request.files['myfile']
         f.save(secure_filename(f.filename))
         return render_template('form_action.html', email , file=request.form['myfile'])
     else:
