@@ -11,11 +11,12 @@ def home():
 @app.route('/form-action', methods=["GET","POST"])
 def form_action():
     if request.method == 'POST':
-        email=request.form['email']
-        file = request.files['myfile']
+        file = request.files['file']
         filename = secure_filename(file.filename)
         UPLOAD_FOLDER = path
         file.save(UPLOAD_FOLDER, filename)   
-        return render_template('form_action.html', email , file=file.filename)
+        return render_template('form_action.html' , file=file.filename)
     else:
         return redirect('/')
+
+app.run(debug=True)
