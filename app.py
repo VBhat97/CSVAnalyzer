@@ -2,7 +2,7 @@ from flask import Flask,render_template,request,redirect
 from werkzeug import secure_filename
 
 app = Flask(__name__)
-path='uploads'
+path ='C:\Users\V.Bhat\Desktop\GraduateStudies\Co-Corriculars\Projects\CSVAnalyzer\uploads'
 
 @app.route('/')
 def home():
@@ -15,7 +15,7 @@ def form_action():
         file = request.files['myfile']
         filename = secure_filename(file.filename)
         UPLOAD_FOLDER = path
-        f.save(os.path.join(UPLOAD_FOLDER, filename))   
-        return render_template('form_action.html', email , file=f.filename)
+        file.save(UPLOAD_FOLDER, filename)   
+        return render_template('form_action.html', email , file=file.filename)
     else:
         return redirect('/')
