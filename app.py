@@ -1,6 +1,9 @@
 from flask import Flask,render_template,request,redirect
+from werkzeug import secure_filename
 
 app = Flask(__name__)
+UPLOAD_FOLDER = './uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 
 @app.route('/')
 def home():
@@ -12,6 +15,6 @@ def form_action():
         email=request.form['email']
         f = request.files['myfile']
         f.save(secure_filename(f.filename))
-        return render_template('form_action.html', email , file=request.form['myfile'])
+        return render_template('form_action.html', email , file=f.filename)
     else:
         return redirect('/')
