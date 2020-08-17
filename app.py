@@ -11,6 +11,9 @@ def home():
 @app.route('/form_action', methods=["GET","POST"])
 def form_action():
     if request.method == 'POST':
-        return render_template('form_action.html')
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return render_template('form_action.html',filename=filename)
     else:
         return redirect('/')
