@@ -2,7 +2,7 @@ from flask import Flask,render_template,request,redirect
 from werkzeug import secure_filename
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'C:/Users/V.Bhat/Desktop/Graduate Studies/Co-Corriculars/Projects/CSVAnalyzer/uploads'
+UPLOAD_FOLDER = '/uploads'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
