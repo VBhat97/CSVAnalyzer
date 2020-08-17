@@ -2,10 +2,7 @@ from flask import Flask,render_template,request,redirect
 from werkzeug import secure_filename
 
 app = Flask(__name__)
-# TODO: THIS MIGHT BE THE ERROR
-UPLOAD_FOLDER = '/uploads'
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+UPLOAD_FOLDER = 'C:/Users/V.Bhat/Desktop/Graduate Studies/Co-Corriculars/Projects/CSVAnalyzer/uploads'
 
 @app.route('/')
 def home():
@@ -14,8 +11,6 @@ def home():
 @app.route('/form-action', methods=["GET","POST"])
 def form_action():
     if request.method == 'POST':
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        # TODO: THIS IS NOT WORKING
+
     else:
         return redirect('/')
