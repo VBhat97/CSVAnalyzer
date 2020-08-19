@@ -13,7 +13,7 @@ def form_action():
     if request.method == 'POST':
         file = request.files['file']
         filename = secure_filename(file.filename)
-        # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return render_template('form_action.html',filename=filename)
     else:
         return redirect('/')
