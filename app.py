@@ -2,6 +2,7 @@ from flask import Flask,render_template,request,redirect,flash
 from werkzeug import secure_filename
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 UPLOAD_FOLDER = '/uploads'
 
 @app.route('/')
