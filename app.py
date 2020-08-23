@@ -16,6 +16,6 @@ def form_action():
             filename = secure_filename(uploaded_file.filename)
             uploaded_file.save(uploaded_file.filename)
             return render_template('form_action.html',filename=filename)
-        return render_template('home.html',filename=filename)
+        return render_template('home.html')
     else:
         return redirect('/')
