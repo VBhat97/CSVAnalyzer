@@ -18,3 +18,7 @@ def form_action():
         return render_template('home.html')
     else:
         return redirect('/')
+
+@app.route('/results_action')
+def home():
+    return render_template('results_action.html')
