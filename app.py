@@ -26,7 +26,7 @@ def results_action():
     if request.method == 'POST':
         trainrows = request.form.get("trainrows")
         testrows = request.form.get("testrows")
-        csvFile = pandas.read_csv('07513409.pdf')
+        csvFile = pandas.read_csv('Housing.csv')
         # TODO: Working correctly, just find a proper csv for uploading.
         # random_value=csvFile.shape[0]
         # print(random_value)
