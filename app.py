@@ -27,5 +27,6 @@ def results_action():
         testrows = request.form.get("testrows")
         csvFile = pd.read_csv('Housing.csv')
         random_value=csvFile.shape[0]
+        random_value2=csvFile.shape[1]
 
-    return render_template('results.html', trainrows=trainrows, testrows=testrows,random_value=random_value)
+    return render_template('results.html', trainrows=trainrows, testrows=testrows,random_value=random_value, random_value2=random_value2)
