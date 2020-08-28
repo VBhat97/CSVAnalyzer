@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,redirect,flash
 from werkzeug import secure_filename
-import pandas
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -11,7 +11,6 @@ def home():
 @app.route('/form_action', methods=["GET","POST"])
 def form_action():
     if request.method == 'POST':
-        print('Hi')
         uploaded_file = request.files['file']
         if uploaded_file.filename != '':
             filename = secure_filename(uploaded_file.filename)
@@ -26,9 +25,7 @@ def results_action():
     if request.method == 'POST':
         trainrows = request.form.get("trainrows")
         testrows = request.form.get("testrows")
-        csvFile = pandas.read_csv('Housing.csv')
-        # TODO: Working correctly, just find a proper csv for uploading.
-        # random_value=csvFile.shape[0]
-        # print(random_value)
+        csvFile = pd.read_csv('Housing.csv')
+        random_value=csvFile.shape[0]
 
     return render_template('results.html', trainrows=trainrows, testrows=testrows,random_value=random_value)
