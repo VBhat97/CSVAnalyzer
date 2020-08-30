@@ -15,7 +15,10 @@ def form_action():
         if uploaded_file.filename != '':
             filename = secure_filename(uploaded_file.filename)
             uploaded_file.save(uploaded_file.filename)
-            return render_template('form_action.html',filename=filename)
+            csvFile = pd.read_csv(uploaded_file.filename)
+            random_value=csvFile.shape[0]
+            random_value2=csvFile.shape[1]
+            return render_template('form_action.html',filename=filename,random_value=random_value,random_value2=random_value2)
         return render_template('home.html')
     else:
         return redirect('/')
@@ -25,8 +28,4 @@ def results_action():
     if request.method == 'POST':
         trainrows = request.form.get("trainrows")
         testrows = request.form.get("testrows")
-        csvFile = pd.read_csv('Housing.csv')
-        random_value=csvFile.shape[0]
-        random_value2=csvFile.shape[1]
-
     return render_template('results.html', trainrows=trainrows, testrows=testrows,random_value=random_value, random_value2=random_value2)
