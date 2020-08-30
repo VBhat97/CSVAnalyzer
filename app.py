@@ -15,7 +15,7 @@ def form_action():
         if uploaded_file.filename != '':
             filename = secure_filename(uploaded_file.filename)
             uploaded_file.save(uploaded_file.filename)
-            csvFile = pd.read_csv(uploaded_file.filename)
+            csvFile = pd.read_csv(filename)
             random_value=csvFile.shape[0]
             random_value2=csvFile.shape[1]
             return render_template('form_action.html',filename=filename,random_value=random_value,random_value2=random_value2)
