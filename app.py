@@ -18,7 +18,6 @@ def form_action():
             csvFile = pd.read_csv(filename)
             random_value=csvFile.shape[0]
             random_value2=csvFile.shape[1]
-            print(type(csvFile))
             return render_template('form_action.html',filename=filename,random_value=random_value,random_value2=random_value2)
         return render_template('home.html')
     else:
@@ -29,5 +28,5 @@ def results_action():
     if request.method == 'POST':
         trainrows = request.form.get("trainrows")
         testrows = request.form.get("testrows")
-        
+
     return render_template('results.html', trainrows=trainrows, testrows=testrows,random_value=random_value, random_value2=random_value2)
