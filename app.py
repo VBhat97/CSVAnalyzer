@@ -29,7 +29,4 @@ def results_action():
         trainrows = request.form.get("trainrows")
         testrows = request.form.get("testrows")
         print(request.form.getlist('svc'))
-        # print(request.form.get('kNN'))
-        # print(type(request.form.get('svc')))
-        # print(type(request.form.get('kNN')))
     return render_template('results.html', trainrows=trainrows, testrows=testrows)
