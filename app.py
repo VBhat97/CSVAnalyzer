@@ -26,6 +26,9 @@ def form_action():
 @app.route('/results_action', methods=["GET","POST"])
 def results_action():
     if request.method == 'POST':
-        trainrows = request.form.get("trainrows")
-        testrows = request.form.get("testrows")
-    return render_template('results.html', trainrows=trainrows, testrows=testrows)
+        traincols = request.form.get("traincols")
+        testcol = request.form.get("testcol")
+        traincols=traincols.split('-')
+        # TODO: Add case for no value entered
+        print(traincols)
+    return render_template('results.html', traincols=traincols, testcol=testcol)
