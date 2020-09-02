@@ -28,5 +28,8 @@ def results_action():
     if request.method == 'POST':
         trainrows = request.form.get("trainrows")
         testrows = request.form.get("testrows")
-
-    return render_template('results.html', trainrows=trainrows, testrows=testrows,random_value=random_value, random_value2=random_value2)
+        print(request.form.getlist('svc'))
+        # print(request.form.get('kNN'))
+        # print(type(request.form.get('svc')))
+        # print(type(request.form.get('kNN')))
+    return render_template('results.html', trainrows=trainrows, testrows=testrows)
