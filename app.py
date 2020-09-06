@@ -34,9 +34,8 @@ def results_action():
         traincols=traincols.split('-')
         filename = session.get('filename', None)
         data=pd.read_csv(filename)
-        train_data=data[:,traincols[0]:traincols[1]]
+        train_data=data.iloc[:,int(traincols[0]):int(traincols[1])]
         print(len(train_data))
+        print(train_data)
         print(type(train_data))
-        
-        
     return render_template('results.html', traincols=traincols, testcol=testcol)
