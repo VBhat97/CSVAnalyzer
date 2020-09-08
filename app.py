@@ -29,13 +29,12 @@ def form_action():
 def results_action():
     if request.method == 'POST':
         traincols = request.form.get("traincols")
-        # TODO: Add case for no value entered
+        # TODO: Add case for no value entered.
         testcol = request.form.get("testcol")
         traincols=traincols.split('-')
         filename = session.get('filename', None)
-        data=pd.read_csv(filename)
+        # TODO: Get header=0 from the user itself if not a proper csv file.
+        data=pd.read_csv(filename,header=None)
         train_data=data.iloc[:,int(traincols[0]):int(traincols[1])]
-        print(len(train_data))
-        print(train_data)
-        print(type(train_data))
+        test_data=data.iloc[:,int(testcol)]
     return render_template('results.html', traincols=traincols, testcol=testcol)
