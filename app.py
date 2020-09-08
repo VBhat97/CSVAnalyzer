@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,redirect,flash,session
 from werkzeug import secure_filename
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 app = Flask(__name__)
 app.secret_key = "aLKG21BFAJH"
@@ -35,6 +36,9 @@ def results_action():
         filename = session.get('filename', None)
         # TODO: Get header=0 from the user itself if not a proper csv file.
         data=pd.read_csv(filename,header=None)
-        train_data=data.iloc[:,int(traincols[0]):int(traincols[1])]
-        test_data=data.iloc[:,int(testcol)]
+        data_features=data.iloc[:,int(traincols[0]):int(traincols[1])]
+        data_output=data.iloc[:,int(testcol)]
+        X_train, X_test, y_train, y_test = train_test_split(data_features, data_output, test_size=0.2, random_state=42)
+        print(len(X_test))
+        print(len(X_train))
     return render_template('results.html', traincols=traincols, testcol=testcol)
