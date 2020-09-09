@@ -43,12 +43,11 @@ def results_action():
         data_features=data.iloc[:,int(traincols[0]):int(traincols[1])]
         data_output=data.iloc[:,int(testcol)]
         X_train, X_test, y_train, y_test = train_test_split(data_features, data_output, test_size=0.2, random_state=42)
-        #All values saved in this list.
-        print(request.form.getlist('options'))
-        # TODO: Just for Linear SVC. More to be added.
-        clf = make_pipeline(StandardScaler(),LinearSVC(random_state=0, tol=1e-5))
-        clf.fit(X_train, y_train)
-        y_pred=clf.predict(X_test)
-        print(accuracy_score(y_test,y_pred))
+        checkbox_values=request.form.getlist('options')
+        if 'SVC' in checkbox_values:
+            clf = make_pipeline(StandardScaler(),LinearSVC(random_state=0, tol=1e-5))
+            clf.fit(X_train, y_train)
+            y_pred=clf.predict(X_test)
+            print(accuracy_score(y_test,y_pred))
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
