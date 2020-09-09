@@ -6,7 +6,7 @@ from sklearn.svm import LinearSVC
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
-from sklearn.neighbors import KNeighborsRegressor
+from sklearn.neighbors import KNeighborsClassifier
 
 app = Flask(__name__)
 app.secret_key = "aLKG21BFAJH"
@@ -45,15 +45,15 @@ def results_action():
         data_output=data.iloc[:,int(testcol)]
         X_train, X_test, y_train, y_test = train_test_split(data_features, data_output, test_size=0.2, random_state=42)
         checkbox_values=request.form.getlist('options')
-        print(checkbox_values)
         if 'SVC' in checkbox_values:
             clf = make_pipeline(StandardScaler(),LinearSVC(random_state=0, tol=1e-5))
             clf.fit(X_train, y_train)
             y_pred=clf.predict(X_test)
         if 'kNN' in checkbox_values:
             # TODO: Fix n_neighbours value
-            knnr = KNeighborsRegressor(n_neighbors = 3)
+            knnr = KNeighborsClassifier(n_neighbors = 3)
             knnr.fit(X_train, y_train)
             y_pred=knnr.predict(X_test)
+            print(accuracy_score(y_test, y_pred))
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
