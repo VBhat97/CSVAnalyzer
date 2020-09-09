@@ -48,6 +48,7 @@ def results_action():
             clf = make_pipeline(StandardScaler(),LinearSVC(random_state=0, tol=1e-5))
             clf.fit(X_train, y_train)
             y_pred=clf.predict(X_test)
-            print(accuracy_score(y_test,y_pred))
+        if 'kNN' in checkbox_values:
+            
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
