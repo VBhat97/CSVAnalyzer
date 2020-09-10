@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
+from sklearn import tree
 
 app = Flask(__name__)
 app.secret_key = "aLKG21BFAJH"
@@ -58,7 +59,10 @@ def results_action():
         if 'NV' in checkbox_values:
             gnb = GaussianNB()
             y_pred = gnb.fit(X_train, y_train).predict(X_test)
-            print(accuracy_score(y_test, y_pred))
         if 'DTree' in checkbox_values:
+            clf = tree.DecisionTreeClassifier()
+            clf = clf.fit(X_train, y_train)
+            y_pred=clf.predict(X_test)
+            print(accuracy_score(y_test, y_pred))
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
