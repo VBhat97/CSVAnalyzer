@@ -59,5 +59,6 @@ def results_action():
             gnb = GaussianNB()
             y_pred = gnb.fit(X_train, y_train).predict(X_test)
             print(accuracy_score(y_test, y_pred))
+        if 'DTree' in checkbox_values:
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
