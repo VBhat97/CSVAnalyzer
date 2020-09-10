@@ -64,6 +64,10 @@ def results_action():
             clf = tree.DecisionTreeClassifier()
             clf = clf.fit(X_train, y_train)
             y_pred=clf.predict(X_test)
-            print(accuracy_score(y_test, y_pred))
+        if 'RF' in checkbox_values:
+            clf = RandomForestClassifier(max_depth=2, random_state=0)
+            clf.fit(X_train,y_train)
+            y_pred=clf.predict(X_test)
+            print(accuracy_score(y_pred,y_test))
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
