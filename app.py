@@ -54,6 +54,9 @@ def results_action():
             knnr = KNeighborsClassifier(n_neighbors = 3)
             knnr.fit(X_train, y_train)
             y_pred=knnr.predict(X_test)
+        if 'NV' in checkbox_values:
+            gnb = GaussianNB()
+            y_pred = gnb.fit(X_train, y_train).predict(X_test)
             print(accuracy_score(y_test, y_pred))
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
