@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn import tree
+from sklearn.ensemble import RandomForestClassifier
 
 app = Flask(__name__)
 app.secret_key = "aLKG21BFAJH"
