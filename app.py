@@ -48,25 +48,40 @@ def results_action():
         data_output=data.iloc[:,int(testcol)]
         X_train, X_test, y_train, y_test = train_test_split(data_features, data_output, test_size=0.2, random_state=42)
         checkbox_values=request.form.getlist('options')
+        accuracy_SVC=0
+        accuracy_kNN=0
+        accuracy_NV=0
+        accuracy_DTree=0
+        accuracy_RF=0
         if 'SVC' in checkbox_values:
             clf = make_pipeline(StandardScaler(),LinearSVC(random_state=0, tol=1e-5))
             clf.fit(X_train, y_train)
             y_pred=clf.predict(X_test)
+            accuracy_SVC=accuracy_score(y_pred,y_test)
         if 'kNN' in checkbox_values:
             # TODO: Fix n_neighbours value
             knnr = KNeighborsClassifier(n_neighbors = 3)
             knnr.fit(X_train, y_train)
             y_pred=knnr.predict(X_test)
+            accuracy_kNN=accuracy_score(y_pred,y_test)
         if 'NV' in checkbox_values:
             gnb = GaussianNB()
             y_pred = gnb.fit(X_train, y_train).predict(X_test)
+            accuracy_NV=accuracy_score(y_pred,y_test)
         if 'DTree' in checkbox_values:
             clf = tree.DecisionTreeClassifier()
             clf = clf.fit(X_train, y_train)
             y_pred=clf.predict(X_test)
+            accuracy_DTree=accuracy_score(y_pred,y_test)
         if 'RF' in checkbox_values:
             clf = RandomForestClassifier(max_depth=2, random_state=0)
             clf.fit(X_train,y_train)
             y_pred=clf.predict(X_test)
+            accuracy_RF=accuracy_score(y_pred,y_test)
+        print("SVC : " + str(accuracy_SVC))
+        print("kNN : "+ str(accuracy_kNN))
+        print("NV : " + str(accuracy_NV))
+        print("DTree : " + str(accuracy_DTree))
+        print("RF : "+ str(accuracy_RF))
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
