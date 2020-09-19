@@ -77,11 +77,19 @@ def results_action():
             clf = RandomForestClassifier(max_depth=2, random_state=0)
             clf.fit(X_train,y_train)
             y_pred=clf.predict(X_test)
-            accuracy_RF=accuracy_score(y_pred,y_test)
-        print("SVC : " + str(accuracy_SVC))
-        print("kNN : "+ str(accuracy_kNN))
-        print("NV : " + str(accuracy_NV))
-        print("DTree : " + str(accuracy_DTree))
-        print("RF : "+ str(accuracy_RF))
+            accuracy_RF=accuracy_score(y_pred,y_test))
+        Accuracy_matrix=[]
+        Name_matrix=[]
+        Accuracy_matrix.append(accuracy_SVC)
+        Name_matrix.append('SVC')
+        Accuracy_matrix.append(accuracy_kNN)
+        Name_matrix.append('kNN')
+        Accuracy_matrix.append(accuracy_NV)
+        Name_matrix.append('NV')
+        Accuracy_matrix.append(accuracy_DTree)
+        Name_matrix.append('DTree')
+        Accuracy_matrix.append(accuracy_RF)
+        Name_matrix.append('RF')
+        
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
