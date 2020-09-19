@@ -77,7 +77,7 @@ def results_action():
             clf = RandomForestClassifier(max_depth=2, random_state=0)
             clf.fit(X_train,y_train)
             y_pred=clf.predict(X_test)
-            accuracy_RF=accuracy_score(y_pred,y_test))
+            accuracy_RF=accuracy_score(y_pred,y_test)
         Accuracy_matrix=[]
         Name_matrix=[]
         Accuracy_matrix.append(accuracy_SVC)
@@ -90,6 +90,7 @@ def results_action():
         Name_matrix.append('DTree')
         Accuracy_matrix.append(accuracy_RF)
         Name_matrix.append('RF')
-        
+        print(Accuracy_matrix)
+        print(Name_matrix)
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
