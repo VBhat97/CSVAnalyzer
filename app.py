@@ -91,6 +91,8 @@ def results_action():
         Name_matrix.append('DTree')
         Accuracy_matrix.append(accuracy_RF)
         Name_matrix.append('RF')
-        fig=plt.plot(Accuracy_matrix,Name_matrix)
+        plt.figure(figsize=(9, 3))
+        plt.bar(Name_matrix,Accuracy_matrix)
+        plt.savefig('foo.png')
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
