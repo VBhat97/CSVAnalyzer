@@ -10,6 +10,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
+from matplotlib import pyplot as plt
 
 app = Flask(__name__)
 app.secret_key = "aLKG21BFAJH"
@@ -90,7 +91,6 @@ def results_action():
         Name_matrix.append('DTree')
         Accuracy_matrix.append(accuracy_RF)
         Name_matrix.append('RF')
-        print(Accuracy_matrix)
-        print(Name_matrix)
+        fig=plt.plot(Accuracy_matrix,Name_matrix)
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
