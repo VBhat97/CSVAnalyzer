@@ -82,19 +82,19 @@ def results_action():
         Accuracy_matrix=[]
         Name_matrix=[]
         if accuracy_SVC != 0:
-            Accuracy_matrix.append(accuracy_SVC)
+            Accuracy_matrix.append(100*accuracy_SVC)
             Name_matrix.append('SVC')
         if accuracy_kNN != 0:
-            Accuracy_matrix.append(accuracy_kNN)
+            Accuracy_matrix.append(100*accuracy_kNN)
             Name_matrix.append('kNN')
         if accuracy_NV != 0:
-            Accuracy_matrix.append(accuracy_NV)
+            Accuracy_matrix.append(100*accuracy_NV)
             Name_matrix.append('NV')
         if accuracy_DTree != 0:
-            Accuracy_matrix.append(accuracy_DTree)
+            Accuracy_matrix.append(100*accuracy_DTree)
             Name_matrix.append('DTree')
         if accuracy_RF != 0:
-            Accuracy_matrix.append(accuracy_RF)
+            Accuracy_matrix.append(100*accuracy_RF)
             Name_matrix.append('RF')
         plt.figure(figsize=(9, 3))
         plt.bar(Name_matrix,Accuracy_matrix)
