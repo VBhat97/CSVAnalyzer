@@ -81,16 +81,21 @@ def results_action():
             accuracy_RF=accuracy_score(y_pred,y_test)
         Accuracy_matrix=[]
         Name_matrix=[]
-        Accuracy_matrix.append(accuracy_SVC)
-        Name_matrix.append('SVC')
-        Accuracy_matrix.append(accuracy_kNN)
-        Name_matrix.append('kNN')
-        Accuracy_matrix.append(accuracy_NV)
-        Name_matrix.append('NV')
-        Accuracy_matrix.append(accuracy_DTree)
-        Name_matrix.append('DTree')
-        Accuracy_matrix.append(accuracy_RF)
-        Name_matrix.append('RF')
+        if accuracy_SVC != 0:
+            Accuracy_matrix.append(accuracy_SVC)
+            Name_matrix.append('SVC')
+        if accuracy_kNN != 0:
+            Accuracy_matrix.append(accuracy_kNN)
+            Name_matrix.append('kNN')
+        if accuracy_NV != 0:
+            Accuracy_matrix.append(accuracy_NV)
+            Name_matrix.append('NV')
+        if accuracy_DTree != 0:
+            Accuracy_matrix.append(accuracy_DTree)
+            Name_matrix.append('DTree')
+        if accuracy_RF != 0:
+            Accuracy_matrix.append(accuracy_RF)
+            Name_matrix.append('RF')
         plt.figure(figsize=(9, 3))
         plt.bar(Name_matrix,Accuracy_matrix)
         plt.savefig('static//img//foo.png')
