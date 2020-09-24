@@ -99,6 +99,7 @@ def results_action():
         plt.figure(figsize=(9, 3))
         plt.bar(Name_matrix,Accuracy_matrix)
         print(Name_matrix)
+        print(Accuracy_matrix)
         plt.savefig('static//img//foo.png')
         # TODO: Add till results on next page.
     return render_template('results.html', traincols=traincols, testcol=testcol)
