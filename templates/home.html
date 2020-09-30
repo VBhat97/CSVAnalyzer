@@ -1,15 +1,14 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/style.css') }}">
-
+<body style="background-image: url('img/green_back_main.webp');">
 <div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
+    <a class="active">Home</a>
+    <a>About</a>
+    <a>Contact</a>
 </div>
 
 <form action="form_action" method="post" enctype="multipart/form-data">
     <input type="file" id="file" name="file" >
     <input type="submit" value="Submit">
 </form>
-
+</body>
 <!-- TODO: Add email, File upload and submit button fields.  -->
