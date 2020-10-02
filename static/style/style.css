@@ -26,6 +26,8 @@
   }
 
 .Homecard {
+    border: 5px solid white;
     height: 500px;
+    width: 500px;
     background-color: #4CAF50;
 }
