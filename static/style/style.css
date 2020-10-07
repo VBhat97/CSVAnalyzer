@@ -28,22 +28,22 @@
 .Homecard {
     border: 5px solid white;
     height: 500px;
-    width: 500px;
+    width: 700px;
     background-color: #4CAF50;
-    margin-left: 500px;
+    margin-left: 400px;
 }
 
 .CardItem1{
-  margin-left: 40px;
+  margin-left: 80px;
 }
 
 .CardItem2{
   margin-top: 200px;
-  margin-left: 150px;
+  margin-left: 280px;
 }
 
 .inputfile {
-	width: 0.1px;
+	width: 0.2px;
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
@@ -58,6 +58,9 @@
   background-color: black;
   display: inline-block;
   cursor: pointer;
+  width: 200px;
+  padding-left: 40px;
+  margin-left: -55px;
 }
 
 .inputfile:focus + label,
