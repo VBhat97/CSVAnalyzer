@@ -2,14 +2,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- <body style="background-image: url('/static/img/green_back_main.png');"> --> 
 <!-- Add Black background Image for improving UI later.-->
+<script type="text/javascript">
+        function toggle_visibility(id) {
+           var e = document.getElementById(id);
+           if(e.style.display == 'block')
+              e.style.display = 'none';
+              e.style.margin-left = '-50px';
+           else
+              e.style.display = 'block';
+        }
+    </script>
 <body style="background-color: black;">
 <div class="topnav">
     <a class="active">Home</a>
-    <a>About</a>
+    <a onclick="toggle_visibility('block2')">About</a>
     <a>Contact</a>
 </div>
 <br><br><br><br>
-<div class="Homecard">
+<div class="Homecard" id="block1">
     <div class="CardItem1">
         <h1>Welcome to the CSV Analyzer</h1>
     </div>
@@ -20,6 +30,9 @@
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
     </div>
+</div>
+<div class="Homecard2" id="block2">
+    <h1>How to use this application</h1>
 </div>
 
 </body>
