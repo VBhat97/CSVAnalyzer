@@ -3,17 +3,28 @@
 <!-- <body style="background-image: url('/static/img/green_back_main.png');"> --> 
 <!-- Add Black background Image for improving UI later.-->
 <script type="text/javascript">
-    function toggle_to_about(){
-        if (document.getElementsByClassName("Homecard")){
-            document.getElementsByClassName("Homecard").class = "Homecard2";
+    function showContent(evt,tabName){
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
         }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
     }
 </script>
 <body style="background-color: black;">
 <div class="topnav">
-    <a class="tablinks" onclick="showContent('Home')">Home</a>
-    <a class="tablinks" onclick="showContent('About')">About</a>
-    <a class="tablinks" onclick="showContent('Contact')">Contact</a>
+    <a class="tablinks" onclick="showContent(event,'Homecontent')">Home</a>
+    <a class="tablinks" onclick="showContent(event,'Aboutcontent')">About</a>
+    <a class="tablinks" onclick="showContent(event,'Contactcontent')">Contact</a>
 </div>
 <br><br><br><br>
 <div id="block1">
@@ -31,6 +42,9 @@
     </div>
     <div id="Aboutcontent" class="tabcontent">
     <h1>How to use this application</h1>
+    </div>
+    <div id="Contactcontent" class="tabcontent">
+        <h1>My Contact Information</h1>
     </div>
 </div>
 
