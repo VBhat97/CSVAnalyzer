@@ -4,19 +4,19 @@
 <!-- Add Black background Image for improving UI later.-->
 <script type="text/javascript">
     function toggle_to_about(){
-        if (document.getElementById("HomeCard")){
-            document.getElementById("one").id = "two";
+        if (document.getElementsByClassName("Homecard")){
+            document.getElementsByClassName("Homecard").class = "Homecard2";
         }
     }
 </script>
 <body style="background-color: black;">
 <div class="topnav">
-    <a class="active">Home</a>
-    <a onclick="toggle_to_about()">About</a>
-    <a>Contact</a>
+    <a class="tablinks" onclick="showContent('Home')">Home</a>
+    <a class="tablinks" onclick="showContent('About')">About</a>
+    <a class="tablinks" onclick="showContent('Contact')">Contact</a>
 </div>
 <br><br><br><br>
-<div class="Homecard" id="block1">
+<div id="block1">
     <div class="CardItem1">
         <h1>Welcome to the CSV Analyzer</h1>
     </div>
@@ -28,9 +28,9 @@
     </form>
     </div>
 </div>
-<div class="Homecard2" id="block2">
+<!-- <div class="Homecard2" id="block2">
     <h1>How to use this application</h1>
-</div>
+</div> -->
 
 </body>
 <!-- TODO: Add email, File upload and submit button fields.  -->
