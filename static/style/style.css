@@ -46,6 +46,14 @@
   margin-left: 400px;
 }
 
+#block2{
+    border: 5px solid white;
+    height: 1000px;
+    width: 1000px;
+    background-color: #4CAF50;
+    margin-left: 400px;
+}
+
 .CardItem1{
   margin-left: 80px;
 }
