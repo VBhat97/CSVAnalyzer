@@ -5,14 +5,14 @@
 <!-- Add Black background Image for improving UI later.-->
 <body style="background-color: black;">
 <div class="topnav">
-    <a class="tablinks" onmouseover="showContent(event,'Homecontent')">Home</a>
+    <a class="tablinks" onmouseover="showContent(event,'Fileuploadcontent')">Home</a>
     <a class="tablinks" onmouseover="showContent(event,'Aboutcontent')">About</a>
     <a class="tablinks" onmouseover="showContent(event,'Contactcontent')">Contact</a>
 </div>
 <br><br><br><br>
 <div id="block2">
     <div id="Fileuploadcontent" class='tabcontent'>
-        <h1> You selected the File : {{ filename }}</h1>
+        <h1> You selected the File : {{ filename }}</h1>    
         <h1> Rows in file : {{ random_value }}</h1>
         <h1> Columns/Features in file : {{ random_value2 }}</h1>
     </div>
